@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function NewTaskForm({catList, taskAdd}) {
+function NewTaskForm({catList, onTaskFormSubmit}) {
   //state variable to track new Task
   const [newTask, setNewTask] = useState({text:'', category:'Code'})
   //controlled input for text
@@ -11,13 +11,13 @@ function NewTaskForm({catList, taskAdd}) {
   function catHandler(e){
     setNewTask({...newTask, category:e.target.value})
   }
-  function onTaskFormSubmit(e){
+  function handleSubmit(e){
     e.preventDefault()
-    taskAdd(newTask)
+    onTaskFormSubmit(newTask)
   }
 
   return (
-    <form className="new-task-form" onSubmit={onTaskFormSubmit}>
+    <form className="new-task-form" onSubmit={handleSubmit}>
       <label>
         Details
         <input type="text" name="text" value={newTask.text} onChange={textHandler}/>
@@ -25,7 +25,7 @@ function NewTaskForm({catList, taskAdd}) {
       <label>
         Category
         <select name="category" onChange={catHandler}>
-          {catList.slice(1).map(cat => {
+          {catList.map(cat => {
             return <option key={cat} value={cat}>{cat}</option>
           })}
         </select>

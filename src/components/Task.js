@@ -3,7 +3,6 @@ import React from "react";
 function Task({taskCat, taskText, taskDelete}) {
   function deleteHandler(e) {
     taskDelete(e.target.id)
-    console.log(e.target);
   }
   return (
     <div className="task">
