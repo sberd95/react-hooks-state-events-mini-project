@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function NewTaskForm({catList, onTaskFormSubmit}) {
+function NewTaskForm({categories, onTaskFormSubmit}) {
   //state variable to track new Task
   const [newTask, setNewTask] = useState({text:'', category:'Code'})
   //controlled input for text
@@ -25,7 +25,7 @@ function NewTaskForm({catList, onTaskFormSubmit}) {
       <label>
         Category
         <select name="category" onChange={catHandler}>
-          {catList.map(cat => {
+          {categories.map(cat => {
             return <option key={cat} value={cat}>{cat}</option>
           })}
         </select>

@@ -2,10 +2,11 @@ import React from "react";
 import Task from "./Task";
 import { v4 as uuidv4 } from 'uuid'
 //bringing in taskList array from App
-function TaskList({taskList, taskDelete}) {
+function TaskList({tasks, taskDelete}) {
+  console.log(tasks)
 
-  const taskArray = taskList.map(task => {
-    return <Task taskDelete={taskDelete} taskCat={task.category} className="task" taskText={task.text} key={uuidv4()} />
+  const taskArray = tasks.map(task => {
+    return <Task taskDelete={taskDelete} category={task.category} className="task" text={task.text} key={uuidv4()} />
   })
   return (
     <div className="tasks">

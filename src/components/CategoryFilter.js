@@ -1,8 +1,8 @@
 import React from "react";
 
-function CategoryFilter({ catList, changeFilter, activeFilter }) {
+function CategoryFilter({ categories, changeFilter, activeFilter }) {
   //reworking functionality so that 'All' is selected by default and the category can be passed without having to manually change class of other buttons
-  const categoryButtons = catList.map(cat => {
+  const categoryButtons = categories.map(cat => {
     return (<button
       className={(cat === activeFilter) ? 'selected' : null}
       key={cat}
